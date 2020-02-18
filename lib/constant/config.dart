@@ -7,12 +7,12 @@ library cresenity.global;
  */
 
 
-String appName = 'cresenity';
-bool isProduction = false;
-bool useSecureConnection = false;
-String developmentDomain = 'development.cresenity.com';
-String productionDomain = 'cresenity.com';
-String pathUrl = '/api/member/';
-String authId = 'auth_id';
-String fullUrl = '';
-bool enableForceLogger = false;
+String appName;
+bool isProduction;
+bool useSecureConnection;
+String developmentDomain;
+String productionDomain;
+String pathUrl;
+String authId;
+String fullUrl;
+bool enableForceLogger;
