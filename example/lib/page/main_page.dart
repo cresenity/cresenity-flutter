@@ -1,3 +1,5 @@
+import 'package:cresenity/network/CApi.dart';
+import 'package:cresenity/network/api.dart';
 import 'package:cresenity/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +21,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -77,6 +80,36 @@ class _MainPageState extends State<MainPage> {
 
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentPage,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.red[800],
+        unselectedItemColor: Colors.grey[800],
+        elevation: 10,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        onTap: (position) {
+          setState(() {
+            currentPage = position;
+          });
+        },
+        items: [
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.smartphone),
+            title: Text('Demo'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.code),
+            title: Text('Code'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info_outline),
+            title: Text('About'),
+          ),
+
+        ],
+      ),
 
     );
   }
@@ -100,5 +133,6 @@ class _MainPageState extends State<MainPage> {
       ],
     );
   }
+
 
 }
