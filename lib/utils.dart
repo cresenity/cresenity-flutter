@@ -89,7 +89,7 @@ class Utils {
     );
   }
 
-  notFound(String message, Future<void> Function() onRefresh) {
+  notFound(String message, Future<void> Function() onRefresh, {bool showReload = true}) {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: Stack(
@@ -98,16 +98,36 @@ class Utils {
             height: getScreenHeight(),
             width: getScreenWidth(),
             color: Colors.white,
-            padding: EdgeInsets.only(bottom: 128),
+            padding: EdgeInsets.only(bottom: 16),
             child: Center(
-              child: Text(
-                message,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: Colors.black54),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    message,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18, color: Colors.black54),
+                  ),
+                  RaisedButton(
+                    onPressed: onRefresh,
+                    child: Text('Reload', style: TextStyle(
+                        color: Colors.green[500],
+                        fontWeight: FontWeight.w600
+                    ),),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: BorderSide(
+                          color: Colors.green[500],
+                          width: 1
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          SingleChildScrollView(
+          if(!showReload) SingleChildScrollView(
             physics: AlwaysScrollableScrollPhysics(),
             child: Container(
               height: getScreenHeight(),
