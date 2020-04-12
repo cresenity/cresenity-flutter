@@ -1,6 +1,8 @@
 library cresenity;
 
-import 'constant/config.dart' as conf;
+import 'package:cresenity/constant/config.dart';
+
+//import 'constant/config.dart' as conf;
 
 class Cresenity {
   int addOne(int value) => value + 1;
@@ -16,11 +18,11 @@ class Cresenity {
     bool useSecureConnection = false,
     bool enableForceLogger = false,
   }){
-    conf.appName = appName;
-    conf.isProduction = isProduction;
-    conf.developmentDomain = developmentDomain;
-    conf.productionDomain = productionDomain;
-    conf.pathUrl = pathUrl;
+    AppConfig.appName = appName;
+    AppConfig.isProduction = isProduction;
+    AppConfig.developmentDomain = developmentDomain;
+    AppConfig.productionDomain = productionDomain;
+    AppConfig.pathUrl = pathUrl;
 
     if(useSecureConnection){
       protocol = 'https';
@@ -29,16 +31,16 @@ class Cresenity {
     }
 
     if(isProduction){
-      conf.authId = productionAuthId;
-      conf.fullUrl = "$protocol://$productionDomain$pathUrl";
+      AppConfig.authId = productionAuthId;
+      AppConfig.baseUrl = "$protocol://$productionDomain$pathUrl";
     }else{
-      conf.authId = developmentAuthId;
-      conf.fullUrl = "$protocol://$developmentDomain$pathUrl";
+      AppConfig.authId = developmentAuthId;
+      AppConfig.baseUrl = "$protocol://$developmentDomain$pathUrl";
     }
 
-    conf.isProduction = isProduction;
-    conf.useSecureConnection = useSecureConnection;
-    conf.enableForceLogger = enableForceLogger;
+    AppConfig.isProduction = isProduction;
+    AppConfig.useSecureConnection = useSecureConnection;
+    AppConfig.enableForceLogger = enableForceLogger;
 
   }
 }

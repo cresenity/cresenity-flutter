@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
 import 'package:async/async.dart';
+import 'package:cresenity/constant/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'result/success.dart';
@@ -15,7 +16,6 @@ import 'loader.dart';
 import 'result/error.dart';
 import 'package:path/path.dart' as path;
 import 'paginator.dart';
-import 'package:cresenity/constant/config.dart' as config;
 
 /**
  * Created by ipul on 10/16/19.
@@ -27,7 +27,7 @@ class Api {
   OnErrorListener _onErrorListener;
   OnExceptionListener _onExceptionListener;
   OnCompleteListener _onCompleteListener;
-  String _appName = config.appName;
+  String _appName = AppConfig.appName;
   Loader _loader;
   bool _isLoading;
   bool _isShowDialog;
@@ -101,7 +101,7 @@ class Api {
   String _getUrl(String _method) {
     String url = "";
 
-    url += config.fullUrl;
+    url += AppConfig.baseUrl;
     url += _method;
 
     return url;
@@ -345,7 +345,7 @@ class Api {
     String errCode = "";
     String errMessage = "";
 
-    if (!config.isProduction) {
+    if (!AppConfig.isProduction) {
       errCode = ". " +
           (Strings.error_code + " ") +
           (code != null && code.isNotEmpty ? code : " 0");
@@ -398,7 +398,7 @@ class Api {
           execute(_method, _parameter, _onSuccessListener);
         },
       ),
-      if (!config.isProduction)
+      if (!AppConfig.isProduction)
         FlatButton(
           child: Text(
             'View Error',
