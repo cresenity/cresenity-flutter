@@ -6,13 +6,24 @@ library cresenity.global;
  * @license Ittron Global Teknologi <ittron.co.id>
  */
 
+class AppConfig{
+  static String appName;
+  static bool isProduction;
+  static bool useSecureConnection;
+  static String developmentDomain;
+  static String productionDomain;
+  static String pathUrl;
+  static String authId;
+  static String baseUrl;
+  static bool enableForceLogger;
+}
 
-String appName = 'cresenity';
-bool isProduction = false;
-bool useSecureConnection = false;
-String developmentDomain = 'development.cresenity.com';
-String productionDomain = 'cresenity.com';
-String pathUrl = '/api/member/';
-String authId = 'auth_id';
-String fullUrl = '';
-bool enableForceLogger = false;
+//String appName;
+//bool isProduction;
+//bool useSecureConnection;
+//String developmentDomain;
+//String productionDomain;
+//String pathUrl;
+//String authId;
+//String fullUrl;
+//bool enableForceLogger;

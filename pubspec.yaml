@@ -17,6 +17,7 @@ dependencies:
   flushbar: ^1.9.1
   url_launcher: ^5.2.3
   intl: ^0.16.1
+  dio: ^3.0.9
 
 dev_dependencies:
   flutter_test:
