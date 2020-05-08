@@ -1,13 +1,16 @@
 library cresenity;
 
+import 'cf/app.dart';
+import 'cf/config.dart';
+import 'cf/trace.dart';
 import 'logger.dart';
-import 'ui/app.dart';
+
 
 
 class CF {
   static Logger logger() {
     return Logger(
-      printer: PrettyPrinter(methodCount: 0),
+      printer: PrettyPrinter(methodCount: 0, colors: false),
     );
   }
 
@@ -17,8 +20,15 @@ class CF {
     );
   }
 
-  static App app() {
-    return App();
+  static CFConfig config() {
+    return CFConfig();
   }
 
+  static CFApp app() {
+    return CFApp();
+  }
+
+  static trace() {
+    return CFTrace();
+  }
 }
