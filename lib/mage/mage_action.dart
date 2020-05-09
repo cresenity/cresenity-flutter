@@ -16,6 +16,9 @@ class MageAction<E> {
   MageResult<E> result = MageResult<E>();
   bool _isDispatching = false;
   String state;
+  bool asyncDispatching = false;
+
+
 
   get isDispatching => _isDispatching;
   void setValue(E t,{String state}) {
@@ -27,7 +30,11 @@ class MageAction<E> {
 
 
 
-  void dispatch(Function callback) {
+  bool dispatch(Function callback) {
+    if(!asyncDispatching && isDispatching) {
+      return false;
+    }
+
     _isDispatching=true;
     Stream stateString = callback(result);
 
@@ -38,6 +45,7 @@ class MageAction<E> {
     },onDone: () {
       _isDispatching=false;
     });
+    return true;
   }
 
   MageBuilder createBuilder(Function callback) {

@@ -1,4 +1,4 @@
-
+library cresenity.mage;
 import 'package:rxdart/rxdart.dart';
 
 import 'mage_action.dart';

@@ -2,17 +2,20 @@
 
 
 class CFConfig {
-  static final CFConfig _singleton = new CFConfig._internal();
+
+  Map<String,dynamic> _config;
+
+
+  static final CFConfig _instance = new CFConfig._();
 
   factory CFConfig() {
-    return _singleton;
+    return _instance;
   }
 
 
-  
-  CFConfig._internal() {
 
+  CFConfig._() {
+    _config = Map<String,dynamic>();
   }
-
 
 }

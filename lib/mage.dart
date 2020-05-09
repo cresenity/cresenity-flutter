@@ -1,6 +1,4 @@
-library creseniy.mage;
-
-export 'package:cresenity/mage.dart';
+library cresenity.mage;
 
 export './mage/mage.dart';
 export './mage/mage_action.dart';
