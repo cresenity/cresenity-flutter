@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'caster.dart';
 import '../helper/c.dart';
+import '../helper/arr.dart';
+
 class Collection {
 
   Map<String,dynamic> _items;
@@ -70,10 +72,8 @@ class Collection {
   }
 
   dynamic get(String key,{defaultValue}) {
-    if(_items.containsKey(key)) {
-      return _items[key];
-    }
-    return defaultValue;
+    return Arr.get(_items,key,defaultValue:defaultValue);
+
   }
 
 

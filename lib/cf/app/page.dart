@@ -8,15 +8,16 @@ import 'package:cresenity/ui/basic/basic_scaffold.dart';
 
 abstract class CFPage extends StatefulWidget{
   String title;
+  CFPageState currentState;
   CFPage({Key key, this.title}) : super(key: key);
 
 
   @override
   State<CFPage> createState() {
-    State s = CFPageState();
-    CF.app().addState(s);
+    currentState= CFPageState();
+    CF.app().addState(currentState);
 
-    return s;
+    return currentState;
 
   }
 
@@ -25,6 +26,12 @@ abstract class CFPage extends StatefulWidget{
 
   void initState() {
 
+  }
+
+  void setState(Function f) {
+    if(currentState!=null) {
+      currentState.publicSetState(f);
+    }
   }
 
 }

@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:cresenity/helper/arr.dart';
 import 'package:cresenity/cf/api/model/abstract_data_model.dart';
 import 'package:cresenity/cf/api/model/data/list_data_model.dart';
+import 'package:cresenity/support/collection.dart';
 
 class ResponseModel<T> {
   int errCode;
@@ -15,7 +16,8 @@ class ResponseModel<T> {
 
   /// Add factory functions for every Type and every constructor you want to make available to `make`
   static Map<Type, Function> factories =  {
-    ListDataModel: (Map map) => ListDataModel.fromMap(map)
+    ListDataModel: (Map map) => ListDataModel.fromMap(map),
+    Collection: (Map map) => Collection(items:map)
   };
 
   static registerFactory(Type t,Function f) {

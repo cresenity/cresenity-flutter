@@ -24,6 +24,8 @@ class ParamCollection extends Collection {
     return result;
   }
 
+
+
   Map<String,String> asPostStringMap({String prefix}) {
     Map<String,String> map = {};
     prefix = prefix ?? '';

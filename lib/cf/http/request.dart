@@ -8,6 +8,7 @@ class Request {
     Object data;
     String dataType;
     ParamCollection _paramCollection;
+
     Request({String url, String method = 'GET', Object data, String dataType = 'text'}) {
         this.url = url;
         this.method = method;
