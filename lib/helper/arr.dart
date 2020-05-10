@@ -45,7 +45,7 @@ class Arr {
       }
     }
     if(key.indexOf('.')>0) {
-      print(key);
+
        for(var segment in key.split(".")) {
 
 
