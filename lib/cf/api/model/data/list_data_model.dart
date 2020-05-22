@@ -3,6 +3,8 @@
 import 'package:cresenity/cf/api/model/abstract_data_model.dart';
 import 'package:cresenity/support/array.dart';
 import 'package:cresenity/helper/arr.dart';
+
+import '../../../../support/collection.dart';
 class ListDataModel extends AbstractDataModel{
   int total =0;
   int lastPage =0;
@@ -14,7 +16,7 @@ class ListDataModel extends AbstractDataModel{
    reset();
   }
 
-  ListDataModel.fromMap(Map map) {
+  ListDataModel.fromJson(Map map) {
     total = Arr.getInt(map, "total");
     lastPage = Arr.getInt(map, "lastPage");
     perPage = Arr.getInt(map, "perPage");
@@ -22,6 +24,8 @@ class ListDataModel extends AbstractDataModel{
     items = Arr.getArray(map, "items");
 
   }
+
+
 
   void reset() {
     currentPage=0;
@@ -36,7 +40,7 @@ class ListDataModel extends AbstractDataModel{
     items.merge(model.items);
   }
 
-  updateFromMap(Map map) {
+  updateFromJson(Map map) {
     total = Arr.getInt(map, "total");
     lastPage = Arr.getInt(map, "lastPage");
     perPage = Arr.getInt(map, "perPage");
@@ -48,4 +52,13 @@ class ListDataModel extends AbstractDataModel{
   int remainPage() {
     return lastPage-currentPage;
   }
+
+  @override
+  Map<String, dynamic > toJson() => {
+    "total":total,
+    "lastPage":lastPage,
+    "perPage":perPage,
+    "currentPage":currentPage,
+    "items":Collection(items:items).all(),
+  };
 }

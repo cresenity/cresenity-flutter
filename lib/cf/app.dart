@@ -1,8 +1,6 @@
 
 
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cresenity/cf/page.dart';
@@ -17,7 +15,7 @@ class CFApp {
     return _singleton;
   }
 
-  List<CFPageState> stateList;
+  List<State<CFPage>> stateList;
 
   CFApp._internal() {
     stateList = new List();
@@ -68,7 +66,7 @@ class CFApp {
     currentState().publicSetState(fn);
   }
 
-  CFApp addState(CFPageState state) {
+  CFApp addState(State state) {
     stateList.add(state);
     CF.logger().d("Add State, Current page index : " + currentPageIndex().toString());
     return this;

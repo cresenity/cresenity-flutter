@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 
 import 'blocker/progress_dialog.dart';
 
-class Blocker {
-  static final Blocker _instance = new Blocker._();
+class CFUIBlocker {
+  static final CFUIBlocker _instance = new CFUIBlocker._();
 
-  factory Blocker() {
+  factory CFUIBlocker() {
     return _instance;
   }
 
   BuildContext _lastContext;
 
   ProgressDialog _progressDialog;
-  Blocker._();
+  CFUIBlocker._();
 
   void blockPage(BuildContext context) async {
     if(_lastContext!=null) {

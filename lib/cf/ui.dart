@@ -3,6 +3,8 @@
 
 
 
+import 'ui/blocker.dart';
+
 class CFUI {
 
 
@@ -16,4 +18,6 @@ class CFUI {
 
   }
 
+
+  static CFUIBlocker get blocker => CFUIBlocker();
 }

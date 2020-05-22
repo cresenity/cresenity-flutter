@@ -1,15 +1,16 @@
 
+import 'dart:collection';
 import 'dart:convert';
 
 import 'caster.dart';
 import '../helper/c.dart';
 import '../helper/arr.dart';
 
-class Collection {
+class Collection<T> {
 
-  Map<String,dynamic> _items;
+  Map<String,T> _items;
 
-  Map<String,dynamic> all() {
+  Map<String,T> all() {
     return _items;
   }
 
@@ -22,7 +23,7 @@ class Collection {
 
 
   Collection clear() {
-    _items = Map<String,dynamic>();
+    _items = Map<String,T>();
   }
 
   Collection.fromJson(String json) {
@@ -31,29 +32,30 @@ class Collection {
 
   _getMapableItems(Object items) {
     if(items==null) {
-      return Map<String,dynamic>();
+      return Map<String,T>();
     }
     if (items is Collection) {
       return items.all();
-    } else if(items is Map<String,dynamic>) {
+    } else if(items is Map<String,T>) {
       return items;
     } else if(items is Map<dynamic,dynamic>) {
-      Map<String,dynamic> newItems = {};
+
+      Map<String,T> newItems = {};
       items.forEach((i, value) {
         Caster cast = Caster(i);
         newItems[cast.toString()] = value;
       });
       return newItems;
     } else if(items is List) {
-      Map<String,dynamic> newItems = {};
+      Map<String,T> newItems = {};
       items.asMap().forEach((i, value) {
         newItems[i.toString()] = value;
       });
       return newItems;
     } else if(C.isScalar(items)) {
 
-      Caster caster = Caster(items);
-      Map<String,dynamic> newItems = {};
+
+      Map<String,T> newItems = {};
       newItems["0"] = items;
       return newItems;
     }
@@ -76,8 +78,8 @@ class Collection {
 
   }
 
-
-  String toJson() {
+  @override
+  String toString() {
     return jsonEncode(_items);
   }
 

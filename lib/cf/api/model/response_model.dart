@@ -4,11 +4,14 @@
 import 'dart:convert';
 
 import 'package:cresenity/helper/arr.dart';
-import 'package:cresenity/cf/api/model/abstract_data_model.dart';
 import 'package:cresenity/cf/api/model/data/list_data_model.dart';
 import 'package:cresenity/support/collection.dart';
 
-class ResponseModel<T> {
+import 'abstract_data_model.dart';
+import 'abstract_model.dart';
+import 'data/collection_data_model.dart';
+
+class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
   int errCode;
   String errMessage;
 
@@ -16,8 +19,9 @@ class ResponseModel<T> {
 
   /// Add factory functions for every Type and every constructor you want to make available to `make`
   static Map<Type, Function> factories =  {
-    ListDataModel: (Map map) => ListDataModel.fromMap(map),
-    Collection: (Map map) => Collection(items:map)
+    ListDataModel: (Map map) => ListDataModel.fromJson(map),
+    CollectionDataModel: (Map map) => CollectionDataModel(items:map),
+    dynamic: (Map map) => CollectionDataModel(items:map)
   };
 
   static registerFactory(Type t,Function f) {
@@ -29,12 +33,21 @@ class ResponseModel<T> {
     errCode = Arr.getInt(item,'errCode');
     errMessage = Arr.getString(item,'errMessage');
 
-    data = factories[T](Arr.getMap(item,'data'));
+
+    data = factories[T](Arr.getMap(item, 'data'));
+
 
   }
 
   bool isError() {
     return errCode>0 ? true:false;
   }
+
+  @override
+  Map<String, dynamic> toJson() => {
+      'errCode':errCode,
+      'errMessage':errMessage,
+      'data':data.toJson(),
+  };
 }
 

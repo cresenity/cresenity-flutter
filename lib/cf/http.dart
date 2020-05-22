@@ -1,6 +1,8 @@
 
 
 
+import '../cf.dart';
+import '../support/collection.dart';
 import 'http/adapter.dart';
 import 'http/factory.dart';
 import 'http/request.dart';
@@ -31,28 +33,32 @@ class CFHttp {
 
   Future<Response> waitRequest({
     String url,
+    Collection data,
     String method = 'GET',
-    String data = '',
     String dataType = 'text',
   }) {
+
+
+
     Request request = Request(url:url, method:method,data:data,dataType: dataType);
+
+
 
     return this._adapter().request(request);
   }
 
   void request({
     String url,
+    Collection data,
     String method = 'GET',
-    String data = '',
     String dataType = 'text',
     Function onSuccess,
     Function onError,
     Function onCompleted,
   }) async {
 
-    Request request = Request(url:url, method:method,data:data,dataType: dataType);
 
-    Response response = await this._adapter().request(request);
+    Response response = await this.waitRequest(url:url,method: method,data:data,dataType: dataType);
 
     if(response.statusCode==200) {
       if(onSuccess!=null) {

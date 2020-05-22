@@ -30,6 +30,10 @@ class CF {
     );
   }
 
+
+  static log(message) {
+    logger().d(message);
+  }
   static CFStorage getStorage({String adapter}) {
     return CFStorage(adapter: adapter);
   }

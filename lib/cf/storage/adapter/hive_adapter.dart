@@ -24,12 +24,17 @@ class HiveAdapter extends Adapter {
 
   Future<bool> put(String key,String value) {
     var box = Hive.box(boxKey);
-    return box.put(key, value);
+    box.put(key, value);
   }
 
-  Future<bool> unset(String key) {
+  Future<bool> unset(String key) async {
     var box = Hive.box(boxKey);
-    return box.delete(key);
+    if(box.containsKey(key)) {
+      await box.delete(key);
+      return true;
+    }
+    return false;
+
   }
 
 

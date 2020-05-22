@@ -42,7 +42,7 @@ class ParamCollection extends Collection {
 
       }
     });
-
+    return map;
 
   }
 
