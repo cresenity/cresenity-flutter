@@ -1,12 +1,12 @@
 
 
 
-class MageResult<T> {
+class CFBlocResult<T> {
   T _value;
 
   get value => _value;
 
-  MageResult<T> setValue(T val) {
+  CFBlocResult<T> setValue(T val) {
     this._value = val;
     return this;
   }

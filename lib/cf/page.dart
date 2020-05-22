@@ -3,10 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:cresenity/cf.dart';
-import 'package:cresenity/ui/basic/basic_scaffold.dart';
 
 
-abstract class CFPage extends StatefulWidget{
+abstract class CFPage extends StatefulWidget {
   String title;
   CFPageState currentState;
   CFPage({Key key, this.title}) : super(key: key);
@@ -14,8 +13,8 @@ abstract class CFPage extends StatefulWidget{
 
   @override
   State<CFPage> createState() {
-    currentState= CFPageState();
-    CF.app().addState(currentState);
+    currentState = new CFPageState();
+    CF.app.addState(currentState);
 
     return currentState;
 

@@ -5,8 +5,8 @@ import 'storage/factory.dart';
 
 class CFStorage {
   static const String ADAPTER_SHARED_PREFERENCES = 'sharedPreferences';
-
-  static const String DEFAULT_ADAPTER = ADAPTER_SHARED_PREFERENCES;
+  static const String ADAPTER_HIVE = 'hive';
+  static const String DEFAULT_ADAPTER = ADAPTER_HIVE;
 
   CFStorage._({String adapter = DEFAULT_ADAPTER}) {
 

@@ -6,10 +6,19 @@ import 'package:cresenity/cf/trace/trace.dart';
 
 class CFTrace {
 
-    CFTrace();
 
-    void logTrace() {
-      CF.logger().d(Trace.current());
+  static final CFTrace _instance = new CFTrace._();
 
-    }
+  factory CFTrace() {
+    return _instance;
+  }
+
+  CFTrace._() {
+
+  }
+
+  void logTrace() {
+    CF.logger().d(Trace.current());
+
+  }
 }

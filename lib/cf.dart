@@ -1,10 +1,12 @@
 library cresenity;
 
 import 'cf/app.dart';
+import 'cf/bloc/bloc_manager.dart';
 import 'cf/config.dart';
 import 'cf/http.dart';
 import 'cf/storage.dart';
 import 'cf/trace.dart';
+import 'cf/ui.dart';
 import 'logger.dart';
 
 
@@ -12,7 +14,8 @@ import 'logger.dart';
 class CF {
 
   static Future<void> setup() async {
-    await storage().setup();
+
+    await getStorage().setup();
   }
 
   static Logger logger() {
@@ -27,23 +30,17 @@ class CF {
     );
   }
 
-  static CFConfig config() {
-    return CFConfig();
-  }
-
-  static CFApp app() {
-    return CFApp();
-  }
-
-  static trace() {
-    return CFTrace();
-  }
-
-  static CFHttp http() {
-    return CFHttp();
-  }
-
-  static CFStorage storage({String adapter}) {
+  static CFStorage getStorage({String adapter}) {
     return CFStorage(adapter: adapter);
   }
+
+  static CFApp get app => CFApp();
+  static CFStorage get storage => CFStorage();
+  static CFHttp get http => CFHttp();
+  static CFTrace get trace => CFTrace();
+  static CFConfig get config => CFConfig();
+  static CFUI get ui => CFUI();
+  static CFBlocManager get bloc => CFBlocManager();
+
+
 }
