@@ -12,7 +12,7 @@ class Array {
     return _items;
   }
 
-  Array({Object items}) {
+  Array( {Object items}) {
     _items = _getListableItems(items);
     if(_items==null) {
       clear();
