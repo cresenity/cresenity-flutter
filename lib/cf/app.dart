@@ -62,13 +62,11 @@ class CFApp {
   }
 
   void setState(VoidCallback fn) {
-    CF.logger().d("set state, Current page index : " + currentPageIndex().toString());
     currentState().publicSetState(fn);
   }
 
   CFApp addState(State state) {
     stateList.add(state);
-    CF.logger().d("Add State, Current page index : " + currentPageIndex().toString());
     return this;
   }
 
@@ -85,7 +83,6 @@ class CFApp {
       new MaterialPageRoute(builder: (context) => page),
     ).then((value) {
       stateList.removeLast();
-      CF.logger().d("Removing State from push, Current page index : " + currentPageIndex().toString());
       setState((){});
     });
   }

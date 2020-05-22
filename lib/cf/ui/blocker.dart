@@ -38,4 +38,5 @@ class CFUIBlocker {
       _lastContext = null;
     }
   }
+
 }

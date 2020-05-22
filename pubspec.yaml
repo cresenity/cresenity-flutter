@@ -44,6 +44,7 @@ flutter:
     - family: MaterialIcons
       fonts:
         - asset: assets/fonts/icons/MaterialIcons.ttf
+
     - family: FontAwesomeIcons
       fonts:
         - asset: assets/fonts/icons/FontAwesomeIcons.ttf

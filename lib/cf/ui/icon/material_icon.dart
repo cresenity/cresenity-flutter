@@ -27,7 +27,7 @@ class CFUIMaterialIcon {
     return _instance;
   }
   static const _kFontFam = 'MaterialIcons';
-  static const _kFontPkg = null;
+  static const _kFontPkg = 'cresenity';
 
   static const IconData threedee_rotation = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ac_unit = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);

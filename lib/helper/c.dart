@@ -8,6 +8,6 @@ class C {
     if(value==null) {
       return true;
     }
-    return value is String || value is int || value is bool || value;
+    return value is String || value is int || value is bool;
   }
 }

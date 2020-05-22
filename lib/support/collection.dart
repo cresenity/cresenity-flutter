@@ -72,10 +72,20 @@ class Collection<T> {
     String keyString = Caster(key).toString();
     return get(keyString);
   }
+  operator []=(dynamic key, dynamic value)  {
+    String keyString = Caster(key).toString();
+    _items[keyString]=value;
+
+  }
 
   dynamic get(String key,{defaultValue}) {
     return Arr.get(_items,key,defaultValue:defaultValue);
 
+  }
+
+  Collection setItems(Map map) {
+    _items = map;
+    return this;
   }
 
   @override

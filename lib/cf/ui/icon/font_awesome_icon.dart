@@ -29,7 +29,7 @@ class CFUIFontAwesomeIcon {
 
 
   static const _kFontFam = 'FontAwesomeIcons';
-  static const _kFontPkg = null;
+  static const _kFontPkg = 'cresenity';
 
   static const IconData film = IconData(0xec4e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData faucet = IconData(0xec4f, fontFamily: _kFontFam, fontPackage: _kFontPkg);

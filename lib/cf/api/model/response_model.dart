@@ -7,6 +7,7 @@ import 'package:cresenity/helper/arr.dart';
 import 'package:cresenity/cf/api/model/data/list_data_model.dart';
 import 'package:cresenity/support/collection.dart';
 
+import '../../../cf.dart';
 import 'abstract_data_model.dart';
 import 'abstract_model.dart';
 import 'data/collection_data_model.dart';
@@ -21,7 +22,8 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
   static Map<Type, Function> factories =  {
     ListDataModel: (Map map) => ListDataModel.fromJson(map),
     CollectionDataModel: (Map map) => CollectionDataModel(items:map),
-    dynamic: (Map map) => CollectionDataModel(items:map)
+    AbstractDataModel: (Map map) => CollectionDataModel(items:map),
+    dynamic: (Map map) => CollectionDataModel(items:map),
   };
 
   static registerFactory(Type t,Function f) {
@@ -33,9 +35,11 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
     errCode = Arr.getInt(item,'errCode');
     errMessage = Arr.getString(item,'errMessage');
 
-
-    data = factories[T](Arr.getMap(item, 'data'));
-
+    if(factories.containsKey(T)) {
+      data = factories[T](Arr.getMap(item, 'data'));
+    } else {
+      data = CollectionDataModel(items:Arr.getMap(item, 'data')) as T;
+    }
 
   }
 

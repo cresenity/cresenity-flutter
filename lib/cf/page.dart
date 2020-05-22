@@ -6,9 +6,9 @@ import 'package:cresenity/cf.dart';
 
 
 abstract class CFPage extends StatefulWidget {
-  String title;
+
   CFPageState currentState;
-  CFPage({Key key, this.title}) : super(key: key);
+  CFPage({Key key}) : super(key: key);
 
 
   @override

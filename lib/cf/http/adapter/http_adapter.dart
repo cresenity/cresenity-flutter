@@ -19,13 +19,11 @@ class HttpAdapter extends Adapter {
       httpRequest.fields[key]=value;
     });
 
-
-
-
     var httpResponse = await httpRequest.send();
     String responseBody = await httpResponse.stream.bytesToString();
 
     Response response = Response(body: responseBody, statusCode:httpResponse.statusCode);
+
     return response;
 
   }
