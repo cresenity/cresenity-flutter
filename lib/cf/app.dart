@@ -82,12 +82,15 @@ class CFApp {
     Navigator.of(this.currentContext()).push(
       new MaterialPageRoute(builder: (context) => page),
     ).then((value) {
-      stateList.removeLast();
-      setState((){});
+      if(stateList.length>0) {
+        stateList.removeLast();
+        setState(() {});
+      }
     });
   }
 
   bool popPage() {
+    CF.log('pop page, current page index ' + currentPageIndex().toString());
     if(Navigator.of(this.currentContext()).canPop()) {
       Navigator.of(this.currentContext()).pop();
       return true;
@@ -102,10 +105,18 @@ class CFApp {
     }
     return false;
   }
+  replacePageToRoot(page) {
+
+    Navigator.of(this.currentContext()).popUntil((route) => route.isFirst);
+
+
+    replacePage(page);
+  }
 
   replacePage(page) {
     BuildContext context = this.currentContext();
     bool popped = popPage();
+    CF.log('popped' + popped.toString());
     if(!popped) {
 
       stateList.clear();
@@ -115,6 +126,8 @@ class CFApp {
     } else {
       pushPage(page);
     }
+
+    CF.log('replace page, current page index ' + currentPageIndex().toString());
   }
 
 

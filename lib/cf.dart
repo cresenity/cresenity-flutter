@@ -4,6 +4,7 @@ import 'cf/app.dart';
 import 'cf/bloc/bloc_manager.dart';
 import 'cf/config.dart';
 import 'cf/http.dart';
+import 'cf/router.dart';
 import 'cf/storage.dart';
 import 'cf/trace.dart';
 import 'cf/ui.dart';
@@ -45,6 +46,8 @@ class CF {
   static CFConfig get config => CFConfig();
   static CFUI get ui => CFUI();
   static CFBlocManager get bloc => CFBlocManager();
+
+  static CFRouter get router => CFRouter();
 
 
 }

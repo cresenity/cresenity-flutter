@@ -2,6 +2,7 @@
 import '../support/caster.dart';
 import '../support/collection.dart';
 import '../support/array.dart';
+import '../cf.dart';
 import 'c.dart';
 class Arr {
   static bool accessible(array) {
@@ -25,6 +26,33 @@ class Arr {
 
     return false;
 
+  }
+
+  static set(array, key, value) {
+    if(key==null) {
+      return array = value;
+    }
+
+    CF.log(key);
+    if(key is String && key.indexOf('.') > 0) {
+      List keys = key.split(".");
+      int i=0;
+      CF.log(keys);
+      while(keys.length>1) {
+        String segment = keys[0];
+        if (accessible(array) && !exists(array, segment)) {
+          array[segment] = array is Map ? {} : [];
+          array = array[segment];
+        }
+        key = keys[1];
+        keys.removeAt(0);
+      }
+
+    }
+
+    array[key] = value;
+
+    return array;
   }
 
   static get(array, key,{dynamic defaultValue}) {
