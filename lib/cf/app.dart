@@ -115,14 +115,14 @@ class CFApp {
 
   replacePage(page) {
     BuildContext context = this.currentContext();
+
     bool popped = popPage();
     CF.log('popped' + popped.toString());
     if(!popped) {
-
-      stateList.clear();
       Navigator.of(context).pushReplacement(
         new MaterialPageRoute(builder: (context) => page),
       );
+      stateList.clear();
     } else {
       pushPage(page);
     }

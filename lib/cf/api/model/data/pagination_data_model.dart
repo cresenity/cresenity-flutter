@@ -5,18 +5,18 @@ import 'package:cresenity/support/array.dart';
 import 'package:cresenity/helper/arr.dart';
 
 import '../../../../support/collection.dart';
-class ListDataModel extends AbstractDataModel{
+class PaginationDataModel extends AbstractDataModel {
   int total =0;
   int lastPage =0;
   int perPage =10;
   int currentPage =1;
   Array items;
 
-  ListDataModel() {
-   reset();
+  PaginationDataModel() {
+    reset();
   }
 
-  ListDataModel.fromJson(Map map) {
+  PaginationDataModel.fromJson(Map map) {
     total = Arr.getInt(map, "total");
     lastPage = Arr.getInt(map, "lastPage");
     perPage = Arr.getInt(map, "perPage");
@@ -32,7 +32,7 @@ class ListDataModel extends AbstractDataModel{
     items = Array();
   }
 
-  updateFromModel(ListDataModel model) {
+  updateFromModel(PaginationDataModel model) {
     total = model.total;
     lastPage = model.lastPage;
     perPage = model.perPage;

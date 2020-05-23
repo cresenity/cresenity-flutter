@@ -4,7 +4,7 @@
 import 'dart:convert';
 
 import 'package:cresenity/helper/arr.dart';
-import 'package:cresenity/cf/api/model/data/list_data_model.dart';
+import 'package:cresenity/cf/api/model/data/pagination_data_model.dart';
 import 'package:cresenity/support/collection.dart';
 
 import '../../../cf.dart';
@@ -20,7 +20,7 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
 
   /// Add factory functions for every Type and every constructor you want to make available to `make`
   static Map<Type, Function> factories =  {
-    ListDataModel: (Map map) => ListDataModel.fromJson(map),
+    PaginationDataModel: (Map map) => PaginationDataModel.fromJson(map),
     CollectionDataModel: (Map map) => CollectionDataModel(items:map),
     AbstractDataModel: (Map map) => CollectionDataModel(items:map),
     dynamic: (Map map) => CollectionDataModel(items:map),
