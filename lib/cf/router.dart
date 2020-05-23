@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../cf.dart';
 import 'router/route.dart';
 
 class CFRouter {
@@ -14,8 +15,6 @@ class CFRouter {
   factory CFRouter() {
     return _instance;
   }
-
-
 
   addRoute(uri,action) {
     return this.routes[uri] = _createRoute(uri, action);
@@ -32,8 +31,6 @@ class CFRouter {
     CFRoute route = _newRoute(uri,action);
     return route;
 
-
-
   }
 
   CFRoute _newRoute(uri, action) {
@@ -45,4 +42,14 @@ class CFRouter {
       return route;
     };
   }
+
+
+
+  Route<dynamic> generator(RouteSettings routeSettings) {
+    String uri = routeSettings.name;
+    CF.log(uri);
+    return null;
+  }
+
+
 }

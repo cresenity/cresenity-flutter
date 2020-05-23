@@ -89,7 +89,7 @@ class CFApp {
     });
   }
 
-  bool popPage() {
+  bool popPage()  {
     CF.log('pop page, current page index ' + currentPageIndex().toString());
     if(Navigator.of(this.currentContext()).canPop()) {
       Navigator.of(this.currentContext()).pop();
