@@ -64,5 +64,21 @@ class Caster {
     return int.parse(value);
   }
 
+  double toDouble() {
+    if(value==null) {
+      return 0;
+    }
+    if(value is double) {
+      return value;
+    }
+    if(value is bool) {
+      return value? 1:0;
+    }
+    if(value is String) {
+      return double.parse(value);
+    }
+    return double.parse(value);
+  }
+
 
 }

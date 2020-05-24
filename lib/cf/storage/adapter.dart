@@ -6,5 +6,5 @@ abstract class Adapter {
   Future<bool> put(String key,String value);
   Future<bool> unset(String key);
 
-  void setup();
+  Future<void> setup();
 }

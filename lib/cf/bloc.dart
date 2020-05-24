@@ -3,6 +3,7 @@
 
 import 'package:rxdart/rxdart.dart';
 
+import '../cf.dart';
 import 'bloc/bloc_builder.dart';
 import 'bloc/bloc_result.dart';
 import 'bloc/bloc_state.dart';
@@ -15,7 +16,7 @@ class CFBloc<E> {
 
   CFBlocResult<E> result = CFBlocResult<E>();
   bool _isDispatching = false;
-  String state;
+  CFBlocState<E> state;
   bool asyncDispatching = false;
 
 
@@ -23,8 +24,9 @@ class CFBloc<E> {
   get isDispatching => _isDispatching;
   void setValue(E t,{String state}) {
     result.setValue(t);
-    CFBlocState<E> mageState = CFBlocState<E>(state,result);
-    this.state = state;
+    CFBlocState<E> mageState = CFBlocState<E>(state,result,this);
+    this.state = mageState;
+
     actionController.sink.add(mageState);
   }
 
@@ -38,9 +40,12 @@ class CFBloc<E> {
     _isDispatching=true;
     Stream stateString = callback(result);
 
+
+
     stateString.listen((item) {
-      this.state=item;
-      CFBlocState<E> state = CFBlocState<E>(item,result);
+
+      CFBlocState<E> state = CFBlocState<E>(item,result,this);
+      this.state = state;
       actionController.sink.add(state);
     },onDone: () {
       _isDispatching=false;
@@ -52,6 +57,7 @@ class CFBloc<E> {
     return CFBlocBuilder(
       stream: actionController.stream,
       builder: callback,
+      bloc: this,
     );
 
   }

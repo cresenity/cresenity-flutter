@@ -8,7 +8,7 @@ import '../adapter.dart';
 
 class SharedPreferencesAdapter extends Adapter {
   SharedPreferences _prefs;
-  void setup() async {
+  Future<void> setup() async {
     _prefs = await SharedPreferences.getInstance();
   }
   String get(String key,{String defaultValue})  {

@@ -60,8 +60,12 @@ class Arr {
     if(!accessible(array) || key==null || !C.isScalar(key)) {
       return defaultValue;
     }
+
+
     if(array is Map) {
+      
       if(array.containsKey(key)) {
+
         return array[key];
       }
     }
@@ -84,6 +88,8 @@ class Arr {
             return defaultValue;
           }
        }
+    } else {
+      return defaultValue;
     }
     return array;
 

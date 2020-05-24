@@ -9,7 +9,7 @@ class HiveAdapter extends Adapter {
 
   final String boxKey = 'CFHive';
 
-  void setup() async {
+  Future<void> setup() async {
     await Hive.initFlutter();
     await Hive.openBox(boxKey);
   }

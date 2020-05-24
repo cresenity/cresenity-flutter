@@ -4,6 +4,7 @@
 
 
 import 'ui/blocker.dart';
+import 'ui/builder.dart';
 import 'ui/icon/material_icon.dart';
 
 class CFUI {
@@ -20,7 +21,11 @@ class CFUI {
   }
 
 
-  static CFUIBlocker get blocker => CFUIBlocker();
+   CFUIBlocker get blocker => CFUIBlocker();
 
-  static CFUIMaterialIcon get materialIcon => CFUIMaterialIcon();
+   CFUIMaterialIcon get materialIcon => CFUIMaterialIcon();
+
+   CFUIBuilder get builder => CFUIBuilder();
+
+
 }

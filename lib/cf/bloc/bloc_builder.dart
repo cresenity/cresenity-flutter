@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../cf.dart';
+import '../bloc.dart';
 import 'bloc_builder_result.dart';
 import 'bloc_state.dart';
 
@@ -11,16 +13,18 @@ class CFBlocBuilder extends StatefulWidget {
   Function builder;
   Stream stream;
   Function init;
+  CFBloc bloc;
   CFBlocBuilder ({
     Key key,
     Function builder,
     Stream stream,
     Function init,
+    CFBloc bloc,
   }): super(key: key) {
     this.builder = builder;
     this.init = init;
     this.stream = stream;
-
+    this.bloc = bloc;
   }
 
 
@@ -48,11 +52,13 @@ class _CFBlocBuilderState extends State<CFBlocBuilder>{
           stream: widget.stream,
           builder: (context,snapshot) {
 
-            CFBlocState mageState = null;
+            CFBlocState mageState = widget.bloc!=null?widget.bloc.state:null;
             if(snapshot.data!=null) {
               mageState = snapshot.data;
 
             }
+
+
 
 
             CFBlocBuilderResult builderResult = CFBlocBuilderResult(context,mageState);

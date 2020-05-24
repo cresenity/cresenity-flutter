@@ -40,9 +40,9 @@ class CFStorage {
     this._adapterType = type;
   }
 
-  void setup() async {
+  Future<void> setup() async {
 
-    _adapter.setup();
+    await _adapter.setup();
   }
 
 
