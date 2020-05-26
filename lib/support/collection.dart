@@ -80,6 +80,9 @@ class Collection<T> implements Map<String,T>{
 
 
 
+  first() {
+    return toArray().first();
+  }
 
   dynamic get(String key,[defaultValue]) {
     return Arr.get(_items,key,defaultValue);

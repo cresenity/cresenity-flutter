@@ -53,6 +53,13 @@ class Array {
 
   }
 
+  first() {
+    if(length>0) {
+      return _items[0];
+    }
+    return null;
+  }
+
 
   factory Array.fromList(List list) {
     return Array(list);
