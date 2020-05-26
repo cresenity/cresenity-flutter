@@ -33,11 +33,11 @@ class Arr {
       return array = value;
     }
 
-    CF.log(key);
+
     if(key is String && key.indexOf('.') > 0) {
       List keys = key.split(".");
       int i=0;
-      CF.log(keys);
+
       while(keys.length>1) {
         String segment = keys[0];
         if (accessible(array) && !exists(array, segment)) {

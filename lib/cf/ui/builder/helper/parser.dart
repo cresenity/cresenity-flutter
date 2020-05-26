@@ -73,10 +73,6 @@ class Parser {
     ValueUnit right = ValueUnit.parse(shorthandParser(cssValue, 'right'));
 
 
-    if(cssValue=="10px") {
-      CF.log("DDD");
-      CF.log(ValueUnit.parse(shorthandParser(cssValue, 'top')));
-    }
     return ValueTRBL(top:top,right:right,left:left ,bottom: bottom);
 
   }
@@ -114,7 +110,7 @@ class Parser {
     if(splittedCssValue.length>0) {
       valueUnit = ValueUnit.parse(splittedCssValue[0]);
     }
-    CF.log(valueUnit);
+
     if(splittedCssValue.length>1) {
       style = parseBorderStyle(splittedCssValue[1]);
     }

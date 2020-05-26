@@ -18,8 +18,6 @@ class CFUIElementText extends CFUIElementBase {
   CFUIElementText([this.text='']);
 
   Widget _textWidget() {
-    CF.log(text);
-    CF.log(styles.getTextAlign());
     return Text(
       text,
       style: TextStyle(
@@ -34,13 +32,9 @@ class CFUIElementText extends CFUIElementBase {
 
   @override
   Widget toWidget() {
-    //return _textWidget();
     return getWrapper(
       child: _textWidget()
     );
-
-
-
   }
 
   @override
