@@ -1,6 +1,8 @@
 
 
+import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../cf.dart';
@@ -17,6 +19,14 @@ class HttpAdapter extends Adapter {
 
     request.paramCollection.asPostStringMap().forEach((key,value) {
       httpRequest.fields[key]=value;
+    });
+
+    request.fileCollection.forEach((key,value) {
+      if (!value is File) {
+        return null;
+      }
+      File file = value as File;
+      
     });
 
     var httpResponse = await httpRequest.send();

@@ -34,13 +34,14 @@ class CFHttp {
   Future<Response> waitRequest({
     String url,
     Collection data,
+    Collection files,
     String method = 'GET',
     String dataType = 'text',
   }) {
 
 
 
-    Request request = Request(url:url, method:method,data:data,dataType: dataType);
+    Request request = Request(url:url, method:method,data:data,files:files,dataType: dataType);
 
 
 
