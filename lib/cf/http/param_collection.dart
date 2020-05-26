@@ -7,7 +7,7 @@ import '../../support/collection.dart';
 
 class ParamCollection extends Collection {
 
-  ParamCollection({Object items}) : super(items:items);
+  ParamCollection({Object items}) : super(items);
 
   String asPostString() {
     String result = '';

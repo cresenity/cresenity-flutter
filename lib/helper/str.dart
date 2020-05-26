@@ -36,6 +36,7 @@ class Str {
   }
 
   static Array explode(String delimiter,String str) {
-    return Array(items: str.split(new RegExp(r''+delimiter+'')));
+    return Array(str.split(new RegExp(r''+delimiter+'')));
   }
+
 }

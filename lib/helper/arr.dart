@@ -114,7 +114,7 @@ class Arr {
     var value = get(map,key,defaultValue);
 
     if(value!=null && (!(value is Collection))) {
-      return Collection(items:value);
+      return Collection(value);
     }
     return value;
   }
@@ -123,7 +123,7 @@ class Arr {
     var value = get(map,key,defaultValue);
 
     if(value!=null && (!(value is Array))) {
-      return Array(items:value);
+      return Array(value);
     }
     return value;
   }

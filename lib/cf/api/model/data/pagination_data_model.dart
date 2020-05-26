@@ -59,6 +59,6 @@ class PaginationDataModel extends AbstractDataModel {
     "lastPage":lastPage,
     "perPage":perPage,
     "currentPage":currentPage,
-    "items":Collection(items:items).all(),
+    "items":Collection(items).all(),
   };
 }

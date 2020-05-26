@@ -27,14 +27,14 @@ class CFConfig {
 
     loadDefaultConfig();
     if(configMap!=null) {
-      _configMap = _configMap.merge(Collection(items: configMap));
+      _configMap = _configMap.merge(Collection(configMap));
     }
   }
 
   loadDefaultConfig() {
 
 
-    _configMap = Collection(items:CFUIDefaultConfig.config);
+    _configMap = Collection(CFUIDefaultConfig.config);
   }
 
 

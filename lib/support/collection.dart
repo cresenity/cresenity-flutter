@@ -16,7 +16,7 @@ class Collection<T> implements Map<String,T>{
   }
 
 
-  Collection({Object items}) {
+  Collection([Object items]) {
     _items = _getMapableItems(items);
     if(_items==null) {
       clear();

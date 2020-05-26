@@ -24,9 +24,9 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
   /// Add factory functions for every Type and every constructor you want to make available to `make`
   static Map<Type, Function> factories =  {
     PaginationDataModel: (Map map) => PaginationDataModel.fromJson(map),
-    CollectionDataModel: (Map map) => CollectionDataModel(items:map),
-    AbstractDataModel: (Map map) => CollectionDataModel(items:map),
-    dynamic: (Map map) => CollectionDataModel(items:map),
+    CollectionDataModel: (Map map) => CollectionDataModel(map),
+    AbstractDataModel: (Map map) => CollectionDataModel(map),
+    dynamic: (Map map) => CollectionDataModel(map),
   };
 
   static registerFactory(Type t,Function f) {
@@ -41,7 +41,7 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
     if(factories.containsKey(T)) {
       data = factories[T](Arr.getMap(item, 'data'));
     } else {
-      data = CollectionDataModel(items:Arr.getMap(item, 'data')) as T;
+      data = CollectionDataModel(Arr.getMap(item, 'data')) as T;
     }
 
   }

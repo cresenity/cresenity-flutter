@@ -21,10 +21,7 @@ class CFUI {
 
   }
 
-
    CFUIBlocker get blocker => CFUIBlocker();
-
-   CFUIMaterialIcon get materialIcon => CFUIMaterialIcon();
 
    CFUIBuilder get builder => CFUIBuilder();
 
