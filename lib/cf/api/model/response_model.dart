@@ -53,7 +53,8 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
       if(onError != null) {
         onError(errCode, errMessage);
       } else {
-        ShowDialog.showSimpleDialog(CF.app.currentContext(), errMessage);
+        CF.ui.dialog.alert(errMessage);
+       
       }
     }
   }

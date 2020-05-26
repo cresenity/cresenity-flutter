@@ -5,6 +5,7 @@
 
 import 'ui/blocker.dart';
 import 'ui/builder.dart';
+import 'ui/dialog.dart';
 import 'ui/icon/material_icon.dart';
 
 class CFUI {
@@ -27,5 +28,6 @@ class CFUI {
 
    CFUIBuilder get builder => CFUIBuilder();
 
+   CFUIDialog get dialog => CFUIDialog();
 
 }

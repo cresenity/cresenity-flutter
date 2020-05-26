@@ -12,11 +12,14 @@ class CFUIBuilder {
     return _instance;
   }
 
+  CFUIBuilder._();
 
   CFUIElement createDiv() {
     return CFUIElementDiv();
   }
 
-  CFUIBuilder._();
+
+
+
 
 }
