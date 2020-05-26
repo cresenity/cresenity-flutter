@@ -8,6 +8,7 @@ import 'package:cresenity/cf/api/model/data/pagination_data_model.dart';
 import 'package:cresenity/support/collection.dart';
 
 import '../../../cf.dart';
+import '../../../show_dialog.dart';
 import 'abstract_data_model.dart';
 import 'abstract_model.dart';
 import 'data/collection_data_model.dart';
@@ -17,6 +18,8 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
   String errMessage;
 
   T data;
+  
+  ResponseModel();
 
   /// Add factory functions for every Type and every constructor you want to make available to `make`
   static Map<Type, Function> factories =  {
@@ -49,6 +52,8 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
     } else {
       if(onError != null) {
         onError(errCode, errMessage);
+      } else {
+        ShowDialog.showSimpleDialog(CF.app.currentContext(), errMessage);
       }
     }
   }

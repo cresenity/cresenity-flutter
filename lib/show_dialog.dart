@@ -21,6 +21,10 @@ class ShowDialog {
 
   ShowDialog({this.context, this.message});
 
+  static void showSimpleDialog(BuildContext context, String message, {bool cancelable = true, OnClickListener onClickListener}) {
+    ShowDialog(context: context, message: (message ?? '')).dismissible(cancelable).onYesPressed(onClickListener).show();
+  }
+
   ShowDialog titleYes(String value) {
     _titleYes = value;
     return this;
