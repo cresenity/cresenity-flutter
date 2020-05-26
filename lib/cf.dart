@@ -4,6 +4,7 @@ import 'cf/app.dart';
 import 'cf/bloc/bloc_manager.dart';
 import 'cf/config.dart';
 import 'cf/http.dart';
+import 'cf/manager.dart';
 import 'cf/router.dart';
 import 'cf/storage.dart';
 import 'cf/trace.dart';
@@ -63,6 +64,6 @@ class CF {
 
   static CFRouter get router => CFRouter();
 
-
+  static CFManager get manager => CFManager();
 
 }
