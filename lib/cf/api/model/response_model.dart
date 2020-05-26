@@ -43,6 +43,16 @@ class ResponseModel<T extends AbstractDataModel> implements AbstractModel {
 
   }
 
+  handleResponse(Function(T model) onSuccess, {Function onError}) {
+    if(this.errCode == 0) {
+      onSuccess(data);
+    } else {
+      if(onError != null) {
+        onError(errCode, errMessage);
+      }
+    }
+  }
+
   bool isError() {
     return errCode>0 ? true:false;
   }
