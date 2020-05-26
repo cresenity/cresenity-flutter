@@ -14,9 +14,10 @@ import 'logger.dart';
 
 class CF {
 
-  static Future<void> setup() async {
+  static Future<void> setup({Map configMap}) async {
 
-    await getStorage().setup();
+    await CFStorage().setup();
+    await CFConfig().setup(configMap:configMap);
   }
 
   static Logger logger() {
@@ -39,15 +40,29 @@ class CF {
     return CFStorage(adapter: adapter);
   }
 
+
+  static dynamic config(String name,[defaultValue]) {
+
+
+
+      return CFConfig().get(name,defaultValue);
+
+
+
+
+
+  }
+
   static CFApp get app => CFApp();
   static CFStorage get storage => CFStorage();
   static CFHttp get http => CFHttp();
   static CFTrace get trace => CFTrace();
-  static CFConfig get config => CFConfig();
+
   static CFUI get ui => CFUI();
   static CFBlocManager get bloc => CFBlocManager();
 
   static CFRouter get router => CFRouter();
+
 
 
 }

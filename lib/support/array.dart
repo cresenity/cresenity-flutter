@@ -65,8 +65,8 @@ class Array {
     return get(key);
   }
 
-  dynamic get(int key,{defaultValue}) {
-      return Arr.get(_items,key,defaultValue: defaultValue);
+  dynamic get(int key,[defaultValue]) {
+      return Arr.get(_items,key,defaultValue);
   }
 
 

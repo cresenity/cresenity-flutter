@@ -35,8 +35,8 @@ class CFUIStyles {
     return this;
   }
 
-  get(String key, {String defaultValue}) {
-    return _styles.get(key,defaultValue: defaultValue);
+  get(String key, [defaultValue]) {
+    return _styles.get(key, defaultValue);
   }
 
   Collection get styles => _styles;

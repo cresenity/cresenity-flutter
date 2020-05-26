@@ -94,7 +94,7 @@ class Parser {
       default:
         return cssValue;
     }
-    return Arr.get(splittedCssValue, directions[direction], defaultValue: '0');
+    return Arr.get(splittedCssValue, directions[direction], '0');
   }
 
 

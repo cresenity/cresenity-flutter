@@ -55,7 +55,7 @@ class Arr {
     return array;
   }
 
-  static get(array, key,{dynamic defaultValue}) {
+  static get(array, key,[dynamic defaultValue]) {
 
     if(!accessible(array) || key==null || !C.isScalar(key)) {
       return defaultValue;
@@ -95,23 +95,23 @@ class Arr {
 
   }
 
-  static String getString(map, key,{String defaultValue}) {
+  static String getString(map, key,[String defaultValue]) {
 
-    var value = get(map,key,defaultValue: defaultValue);
+    var value = get(map,key,defaultValue);
 
     return Caster(value).toString();
 
   }
 
 
-  static int getInt(map, key,{int defaultValue}) {
-    var value = get(map,key,defaultValue: defaultValue);
+  static int getInt(map, key,[int defaultValue]) {
+    var value = get(map,key,defaultValue);
     return Caster(value).toInt();
   }
 
 
-  static Collection getCollection(map, key,{Collection defaultValue}) {
-    var value = get(map,key,defaultValue: defaultValue);
+  static Collection getCollection(map, key,[Collection defaultValue]) {
+    var value = get(map,key,defaultValue);
 
     if(value!=null && (!(value is Collection))) {
       return Collection(items:value);
@@ -119,8 +119,8 @@ class Arr {
     return value;
   }
 
-  static Array getArray(map, key,{Array defaultValue}) {
-    var value = get(map,key,defaultValue: defaultValue);
+  static Array getArray(map, key,[Array defaultValue]) {
+    var value = get(map,key,defaultValue);
 
     if(value!=null && (!(value is Array))) {
       return Array(items:value);
@@ -128,8 +128,8 @@ class Arr {
     return value;
   }
 
-  static Map getMap(map, key,{Array defaultValue}) {
-    var value = get(map,key,defaultValue: defaultValue);
+  static Map getMap(map, key,[Map defaultValue]) {
+    var value = get(map,key,defaultValue);
 
 
     return value;

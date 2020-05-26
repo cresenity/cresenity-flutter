@@ -81,8 +81,8 @@ class Collection<T> implements Map<String,T>{
 
 
 
-  dynamic get(String key,{defaultValue}) {
-    return Arr.get(_items,key,defaultValue:defaultValue);
+  dynamic get(String key,[defaultValue]) {
+    return Arr.get(_items,key,defaultValue);
 
   }
 
