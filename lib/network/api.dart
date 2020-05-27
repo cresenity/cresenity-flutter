@@ -398,7 +398,7 @@ class Api {
           execute(_method, _parameter, _onSuccessListener);
         },
       ),
-      if (!AppConfig.isProduction)
+      !AppConfig.isProduction ?
         FlatButton(
           child: Text(
             'View Error',
@@ -408,7 +408,7 @@ class Api {
             Navigator.of(dialogContext).pop();
             _showAlert(_response);
           },
-        ),
+        ) : Container(),
     ];
   }
 
