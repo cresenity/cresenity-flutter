@@ -127,14 +127,14 @@ class Utils {
               ),
             ),
           ),
-          if(!showReload) SingleChildScrollView(
+          !showReload ? SingleChildScrollView(
             physics: AlwaysScrollableScrollPhysics(),
             child: Container(
               height: getScreenHeight(),
               width: getScreenWidth(),
               color: Colors.transparent,
             ),
-          ),
+          ) : Container(),
         ],
       ),
     );

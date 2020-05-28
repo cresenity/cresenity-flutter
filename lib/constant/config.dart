@@ -7,15 +7,15 @@ library cresenity.global;
  */
 
 class AppConfig{
-  static String appName;
-  static bool isProduction;
-  static bool useSecureConnection;
+  static String appName = 'Cresenity Framework';
+  static bool isProduction = false;
+  static bool useSecureConnection = false;
   static String developmentDomain;
   static String productionDomain;
   static String pathUrl;
   static String authId;
   static String baseUrl;
-  static bool enableForceLogger;
+  static bool enableForceLogger = false;
 }
 
 //String appName;
