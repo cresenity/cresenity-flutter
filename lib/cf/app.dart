@@ -77,11 +77,14 @@ class CFApp {
     ShowDialog dialog = ShowDialog(context:this.currentContext(),message:message);
     dialog.show();
   }
-  pushPage(CFPage page) {
+  pushPage(CFPage page, [Function(dynamic value) onPop]) {
 
     Navigator.of(this.currentContext()).push(
       new MaterialPageRoute(builder: (context) => page),
     ).then((value) {
+      if(onPop!=null) {
+        onPop(value);
+      }
       if(stateList.length>0) {
         stateList.removeLast();
         setState(() {});
@@ -89,10 +92,10 @@ class CFApp {
     });
   }
 
-  bool popPage()  {
+  bool popPage([value])  {
     CF.log('pop page, current page index ' + currentPageIndex().toString());
     if(Navigator.of(this.currentContext()).canPop()) {
-      Navigator.of(this.currentContext()).pop();
+      Navigator.of(this.currentContext()).pop(value);
       return true;
     }
     return false;
