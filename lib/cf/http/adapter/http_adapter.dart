@@ -19,7 +19,7 @@ class HttpAdapter extends Adapter {
       httpRequest.fields[key] = value;
     });
 
-    request.fileCollection.forEach((key, value) async {
+    await request.fileCollection.forEach((key, value) async {
       if (value != null) {
         // print('SN_LOG + IS FILE + ' + (value is File).toString());
         if (value is File) {
